@@ -79,6 +79,20 @@ This project is designed to help students:
 
 ---
 
+## 👥 Contributors
+
+Thanks to these amazing people for contributing to this project! 🎉
+
+<a href="https://github.com/Demon-Die/DemonTechRoadmap/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Demon-Die/DemonTechRoadmap" alt="Contributors" />
+</a>
+
+<br />
+
+> Want to see your avatar here? [Start contributing!](#-contributing)
+
+---
+
 ## 💬 Community
 
 Join our community and connect with other learners and contributors.
