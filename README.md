@@ -84,6 +84,36 @@ This project is designed to help students:
 Thanks to these amazing people for contributing to this project! 🎉
 
 <!-- CONTRIBUTORS-START -->
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/rishibhardwaj2" title="rishibhardwaj2">
+        <img src="https://avatars.githubusercontent.com/u/119101066?v=4&s=100" width="80px;" alt="rishibhardwaj2"/><br />
+        <sub><b>rishibhardwaj2</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/rue-eru" title="rue-eru">
+        <img src="https://avatars.githubusercontent.com/u/162464326?v=4&s=100" width="80px;" alt="rue-eru"/><br />
+        <sub><b>rue-eru</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Yuvraj-Sarathe" title="Yuvraj-Sarathe">
+        <img src="https://avatars.githubusercontent.com/u/216678101?v=4&s=100" width="80px;" alt="Yuvraj-Sarathe"/><br />
+        <sub><b>Yuvraj-Sarathe</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Dhrubajyoti930" title="Dhrubajyoti930">
+        <img src="https://avatars.githubusercontent.com/u/149499573?v=4&s=100" width="80px;" alt="Dhrubajyoti930"/><br />
+        <sub><b>Dhrubajyoti930</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
 <!-- CONTRIBUTORS-END -->
 
 > Want to see your avatar here? [Start contributing!](#-contributing)
