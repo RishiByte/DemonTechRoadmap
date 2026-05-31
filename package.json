@@ -1,0 +1,17 @@
+{
+  "name": "demon-tech-roadmap",
+  "private": true,
+  "workspaces": [
+    "project"
+  ],
+  "scripts": {
+    "build": "npm --workspace project run build",
+    "dev": "npm --workspace project run dev",
+    "lint": "npm --workspace project run lint"
+  },
+  "dependencies": {
+    "next": "16.2.6",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  }
+}
