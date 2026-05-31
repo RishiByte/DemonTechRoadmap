@@ -83,11 +83,8 @@ This project is designed to help students:
 
 Thanks to these amazing people for contributing to this project! 🎉
 
-<a href="https://github.com/Demon-Die/DemonTechRoadmap/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Demon-Die/DemonTechRoadmap" alt="Contributors" />
-</a>
-
-<br />
+<!-- CONTRIBUTORS-START -->
+<!-- CONTRIBUTORS-END -->
 
 > Want to see your avatar here? [Start contributing!](#-contributing)
 
