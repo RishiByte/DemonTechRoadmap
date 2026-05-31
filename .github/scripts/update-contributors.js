@@ -4,10 +4,8 @@ const { execSync } = require("child_process");
 
 const README_PATH = path.join(process.env.GITHUB_WORKSPACE || ".", "README.md");
 
-// Markers that wrap the auto-managed contributor grid in the README.
 const START_MARKER = "<!-- CONTRIBUTORS-START -->";
 const END_MARKER   = "<!-- CONTRIBUTORS-END -->";
-
 
 function sh(cmd) {
   return execSync(cmd, {
@@ -19,13 +17,12 @@ function sh(cmd) {
 function getNewCommitters() {
   const before = process.env.BEFORE_SHA;
   const after  = process.env.AFTER_SHA;
-  const committers = new Map(); // username -> { username, name, email }
+  const committers = new Map();
 
   let range = "";
   if (before && after && before !== "0000000000000000000000000000000000000000") {
     range = `${before}..${after}`;
   } else {
-    // First push or missing SHAs – just inspect the latest commit(s).
     range = "HEAD~1..HEAD";
   }
 
@@ -39,18 +36,22 @@ function getNewCommitters() {
       const [name, email] = line.split("|");
       if (!email) continue;
 
-      let username = "";
+      let guessedUsername = "";
       const noreplyMatch = email.match(/^\d+\+([^@]+)@users\.noreply\.github\.com$/);
       if (noreplyMatch) {
-        username = noreplyMatch[1];
+        guessedUsername = noreplyMatch[1];
       } else {
-        username = email.split("@")[0].toLowerCase();
+        guessedUsername = email.split("@")[0].toLowerCase();
       }
 
-      if (username.includes("github-actions")) continue;
+      if (guessedUsername.includes("github-actions")) continue;
 
-      if (!committers.has(username)) {
-        committers.set(username, { username, name: name || username, email });
+      if (!committers.has(email.toLowerCase())) {
+        committers.set(email.toLowerCase(), {
+          guessedUsername,
+          name: name || guessedUsername,
+          email,
+        });
       }
     }
   } catch (err) {
@@ -60,18 +61,21 @@ function getNewCommitters() {
   return Array.from(committers.values());
 }
 
-async function enrichContributor({ username, name, email }) {
-  try {
-    const res = await fetch(`https://api.github.com/users/${username}`, {
-      headers: {
-        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-        Accept: "application/vnd.github+json",
-        "User-Agent": "update-contributors-bot",
-      },
-    });
+async function enrichContributor({ guessedUsername, name, email }) {
+  const headers = {
+    Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+    Accept: "application/vnd.github+json",
+    "User-Agent": "update-contributors-bot",
+  };
 
-    if (res.ok) {
-      const data = await res.json();
+  try {
+    const direct = await fetch(
+      `https://api.github.com/users/${guessedUsername}`,
+      { headers }
+    );
+    if (direct.ok) {
+      const data = await direct.json();
+      console.log(`    ✓ direct lookup: @${data.login}`);
       return {
         username: data.login,
         name: data.name || data.login,
@@ -79,17 +83,55 @@ async function enrichContributor({ username, name, email }) {
         htmlUrl: data.html_url,
       };
     }
-  } catch (_) {
+  } catch (_) {}
+
+  if (name && name !== guessedUsername) {
+    try {
+      const q = encodeURIComponent(`${name} in:name type:user`);
+      const search = await fetch(
+        `https://api.github.com/search/users?q=${q}&per_page=5`,
+        { headers }
+      );
+      if (search.ok) {
+        const { items } = await search.json();
+        if (items && items.length > 0) {
+          const lowerName = name.toLowerCase();
+          const scored = items.map((item) => {
+            let score = 0;
+            const loginLower = item.login.toLowerCase();
+            const displayLower = (item.login || "").toLowerCase();
+            if (displayLower === lowerName) score += 100;
+            if (loginLower === lowerName) score += 90;
+            if (displayLower.includes(lowerName)) score += 50;
+            if (loginLower.includes(lowerName.replace(/\s+/g, ""))) score += 40;
+            if (loginLower.includes(lowerName.replace(/\s+/g, "-"))) score += 40;
+            return { ...item, score };
+          });
+          scored.sort((a, b) => b.score - a.score);
+          const best = scored[0];
+
+          if (best.score > 0) {
+            console.log(`    ✓ name search: "${name}" → @${best.login} (score: ${best.score})`);
+            return {
+              username: best.login,
+              name: best.login,
+              avatarUrl: best.avatar_url,
+              htmlUrl: best.html_url,
+            };
+          }
+        }
+      }
+    } catch (_) {}
   }
 
+  console.log(`    ⚠ using fallback for guessed username "${guessedUsername}"`);
   return {
-    username,
-    name: name || username,
-    avatarUrl: `https://github.com/${username}.png`,
-    htmlUrl: `https://github.com/${username}`,
+    username: guessedUsername,
+    name: name || guessedUsername,
+    avatarUrl: `https://github.com/${guessedUsername}.png`,
+    htmlUrl: `https://github.com/${guessedUsername}`,
   };
 }
-
 
 function getExistingContributors(content) {
   const startIdx = content.indexOf(START_MARKER);
@@ -110,7 +152,6 @@ function getExistingContributors(content) {
 
   return { usernames: existing, blockContent };
 }
-
 
 function parseExistingContributors(blockContent) {
   const contributors = [];
@@ -187,7 +228,7 @@ async function main() {
   console.log("::group::🔍 Finding new committers");
   const newCommitters = getNewCommitters();
   console.log(`${newCommitters.length} unique author(s) in this push:`);
-  newCommitters.forEach((c) => console.log(`  • ${c.username} <${c.email}>`));
+  newCommitters.forEach((c) => console.log(`  • ${c.guessedUsername} <${c.email}>`));
   console.log("::endgroup::");
 
   if (newCommitters.length === 0) {
@@ -215,19 +256,19 @@ async function main() {
       if (!email) continue;
 
       const noreplyMatch = email.match(/^\d+\+([^@]+)@users\.noreply\.github\.com$/);
-      const username = noreplyMatch
+      const guessedUsername = noreplyMatch
         ? noreplyMatch[1]
         : email.split("@")[0].toLowerCase();
 
-      if (username.includes("github-actions")) continue;
-      if (seen.has(username.toLowerCase())) continue;
+      if (guessedUsername.includes("github-actions")) continue;
+      if (seen.has(email.toLowerCase())) continue;
 
-      seen.add(username.toLowerCase());
-      historicalCommitters.push({ username, name: name || username, email });
+      seen.add(email.toLowerCase());
+      historicalCommitters.push({ guessedUsername, name: name || guessedUsername, email });
     }
 
     console.log(`Found ${historicalCommitters.length} historical contributor(s):`);
-    historicalCommitters.forEach((c) => console.log(`  • ${c.username}`));
+    historicalCommitters.forEach((c) => console.log(`  • ${c.guessedUsername}`));
 
     const enrichedHistory = [];
     for (const c of historicalCommitters) {
@@ -259,12 +300,20 @@ async function main() {
     return;
   }
 
-  const trulyNew = [];
+  console.log("::group::✨ Resolving GitHub profiles");
+  const enriched = [];
   for (const c of newCommitters) {
-    if (!existingUsernames.has(c.username.toLowerCase())) {
-      trulyNew.push(c);
+    const profile = await enrichContributor(c);
+    enriched.push(profile);
+  }
+  console.log("::endgroup::");
+
+  const trulyNew = [];
+  for (const profile of enriched) {
+    if (!existingUsernames.has(profile.username.toLowerCase())) {
+      trulyNew.push(profile);
     } else {
-      console.log(`⏭️  @${c.username} – already in README, skipping`);
+      console.log(`⏭️  @${profile.username} – already in README, skipping`);
     }
   }
 
@@ -273,20 +322,10 @@ async function main() {
     return;
   }
 
-  console.log("::group::✨ Enriching via GitHub API");
-  const enriched = [];
-  for (const c of trulyNew) {
-    const profile = await enrichContributor(c);
-    enriched.push(profile);
-    console.log(`  ✓ @${profile.username} → ${profile.name}`);
-  }
-  console.log("::endgroup::");
-
   const existingContributors = parseExistingContributors(blockContent);
-  const allContributors = [...existingContributors, ...enriched];
+  const allContributors = [...existingContributors, ...trulyNew];
   const newBlock = buildContributorBlock(allContributors);
 
-  // Replace old block with new block
   const startIdx = originalContent.indexOf(START_MARKER);
   const endIdx   = originalContent.indexOf(END_MARKER);
   const updatedContent =
@@ -299,7 +338,7 @@ async function main() {
   console.log("✅ README written");
   console.log("::endgroup::");
 
-  const names = enriched.map((c) => `@${c.username}`).join(", ");
+  const names = trulyNew.map((c) => `@${c.username}`).join(", ");
   const commitMsg = `docs: add contributor(s) ${names} to README`;
 
   console.log("::group::🚀 Committing & pushing");
