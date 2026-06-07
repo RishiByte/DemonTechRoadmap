@@ -56,6 +56,8 @@ export default function SearchableResources() {
     });
   }, [activeCategory, q]);
 
+  const hasSearchTerm = q.trim().length > 0;
+
   return (
     <section className="mt-6 w-full">
       <div className="mb-5 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
@@ -109,8 +111,9 @@ export default function SearchableResources() {
 
           {filtered.length === 0 && (
             <p className="mt-6 text-sm text-slate-600 dark:text-slate-400">
-              No results for &quot;{q}&quot; in this category. Try a different keyword or
-              switch categories.
+              {hasSearchTerm
+                ? `No results for "${q}" in this category. Try a different keyword or switch categories.`
+                : "No resources found in this category. Try a different category or reset your filters."}
             </p>
           )}
         </div>
