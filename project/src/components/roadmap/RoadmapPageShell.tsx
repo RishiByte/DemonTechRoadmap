@@ -554,24 +554,32 @@ function RoadmapJourney(props: {
       <div className="relative mt-6 space-y-5">
         <div className="absolute bottom-8 left-6 top-8 hidden w-px bg-zinc-800 sm:block" />
         {props.nodes.length ? (
-          props.nodes.map((node, index) => (
-            <RoadmapNodeCard
-              bookmarked={props.bookmarkedIds.has(node.id)}
-              completed={props.completedIds.has(node.id)}
-              expanded={props.expandedNodeId === node.id}
-              index={index}
-              key={node.id}
+          props.nodes.map((node, index) => {
+            const isNext = index === props.nodes.findIndex(n => !props.completedIds.has(n.id));
+            return (
+              <RoadmapNodeCard
+                bookmarked={props.bookmarkedIds.has(node.id)}
+                completed={props.completedIds.has(node.id)}
+                expanded={props.expandedNodeId === node.id}
+                isNext={isNext}
+                index={index}
+                key={node.id}
               miniProjectLabel={props.miniProjectLabel}
               node={node}
               note={props.notes[node.id] ?? ""}
               notesPlaceholder={props.notesPlaceholder}
-              onExpand={() => props.setExpandedNodeId((current) => (current === node.id ? "" : node.id))}
-              onNoteChange={(value) => props.setNotes((current) => ({ ...current, [node.id]: value }))}
-              onToggleBookmark={() => props.toggleSet(props.setBookmarkedIds, props.bookmarkedIds, node.id)}
-              onToggleComplete={() => props.toggleSet(props.setCompletedIds, props.completedIds, node.id)}
-              topicHref={props.getTopicHref?.(node.id)}
-            />
-          ))
+                miniProjectLabel={props.miniProjectLabel}
+                node={node}
+                note={props.notes[node.id] ?? ""}
+                notesPlaceholder={props.notesPlaceholder}
+                onExpand={() => props.setExpandedNodeId((current) => (current === node.id ? "" : node.id))}
+                onNoteChange={(value) => props.setNotes((current) => ({ ...current, [node.id]: value }))}
+                onToggleBookmark={() => props.toggleSet(props.setBookmarkedIds, props.bookmarkedIds, node.id)}
+                onToggleComplete={() => props.toggleSet(props.setCompletedIds, props.completedIds, node.id)}
+                topicHref={props.getTopicHref?.(node.id)}
+              />
+            );
+          })
         ) : (
           <div className="rounded-md border border-zinc-800 bg-zinc-950 p-6 text-center">
             <Icon className="mx-auto h-8 w-8 text-red-400" name="search" />
@@ -825,6 +833,7 @@ export function RoadmapNodeCard({
   bookmarked,
   completed,
   expanded,
+  isNext,
   index,
   miniProjectLabel,
   node,
@@ -839,6 +848,7 @@ export function RoadmapNodeCard({
   bookmarked: boolean;
   completed: boolean;
   expanded: boolean;
+  isNext: boolean;
   index: number;
   miniProjectLabel: string;
   node: RoadmapNode;
@@ -854,10 +864,10 @@ export function RoadmapNodeCard({
 
   return (
     <article className="relative scroll-mt-24" id={`roadmap-node-${node.id}`}>
-      <span className={`absolute left-0 top-7 z-10 grid h-12 w-12 place-items-center rounded-md border text-sm font-black ${completed ? "border-red-500 bg-red-500 text-white" : "border-zinc-800 bg-[#050505] text-zinc-300"}`}>
+      <span className={`absolute left-0 top-7 z-10 grid h-12 w-12 place-items-center rounded-md border text-sm font-black ${completed ? "border-red-500 bg-red-500 text-white" : isNext ? "border-red-500/50 bg-[#050505] text-red-400 shadow-[0_0_15px_rgba(239,68,68,0.25)]" : "border-zinc-800 bg-[#050505] text-zinc-300"}`}>
         {completed ? <Icon className="h-5 w-5" name="check" /> : String(index + 1).padStart(2, "0")}
       </span>
-      <div className={`ml-7 rounded-md border bg-zinc-950/80 transition ${expanded ? "border-red-500/70" : "border-zinc-800 hover:border-red-500/40"}`}>
+      <div className={`ml-7 rounded-md border bg-zinc-950/80 transition ${expanded ? "border-red-500/70" : isNext ? "border-red-500/40 hover:border-red-500/70 shadow-[0_0_20px_rgba(239,68,68,0.05)]" : "border-zinc-800 hover:border-red-500/40"}`}>
         <button aria-controls={detailsId} aria-expanded={expanded} aria-label={`${expanded ? "Collapse" : "Expand"} ${node.title}`} className="grid w-full gap-5 p-5 pl-10 text-left md:grid-cols-[minmax(0,1fr)_auto]" onClick={onExpand} type="button">
           <span>
             <span className="flex flex-wrap items-center gap-2">
@@ -872,7 +882,7 @@ export function RoadmapNodeCard({
             <span className="mt-2 block max-w-3xl text-sm leading-6 text-zinc-400">{node.description}</span>
           </span>
           <span className="flex items-center gap-3 md:justify-end">
-            <span className={completed ? "text-sm font-bold text-red-300" : "text-sm font-bold text-zinc-500"}>{completed ? "Complete" : "In progress"}</span>
+            <span className={completed ? "text-sm font-bold text-red-300" : isNext ? "text-sm font-black text-red-400" : "text-sm font-bold text-zinc-500"}>{completed ? "Complete" : isNext ? "Up Next" : "In progress"}</span>
             <Icon className={`h-5 w-5 text-zinc-500 transition ${expanded ? "rotate-90 text-red-400" : ""}`} name="arrow" />
           </span>
         </button>
