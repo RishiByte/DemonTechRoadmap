@@ -6,7 +6,8 @@
     "dev": "next dev --webpack",
     "build": "node scripts/build-for-vercel.mjs",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "validate:resources": "node scripts/validate-resources.mjs"
   },
   "engines": {
     "node": "24.x"
