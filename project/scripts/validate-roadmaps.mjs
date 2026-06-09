@@ -29,7 +29,7 @@ const ROADMAPS_DIR = join(__dirname, "..", "src", "data", "roadmaps");
 
 const VALID_IMPORTANCE = new Set(["Critical", "High", "Medium", "Low"]);
 
-const REQUIRED_TOP_LEVEL = ["id", "title", "description", "phases"];
+const REQUIRED_TOP_LEVEL = ["id", "title", "description", "metadata", "phases"];
 const REQUIRED_METADATA = ["difficulty", "estimatedTime", "version", "lastUpdated"];
 const REQUIRED_PHASE = ["phaseId", "title", "topics"];
 const REQUIRED_TOPIC = ["topicId", "name", "description", "importance"];
