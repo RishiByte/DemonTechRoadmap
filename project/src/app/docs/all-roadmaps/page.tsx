@@ -718,18 +718,21 @@ export default function AllRoadmaps() {
 
               <div className="mt-6 overflow-x-auto rounded-lg border border-[var(--border)]">
                 <table className="w-full min-w-[640px] border-collapse text-left text-sm">
+                  <caption className="sr-only">
+                    Comparison of roadmap paths by learner fit, duration, and starting difficulty.
+                  </caption>
                   <thead>
                     <tr className="border-b border-[var(--border)] bg-[var(--panel-strong)]">
-                      <th className="px-5 py-4 text-xs font-black uppercase tracking-[0.14em] text-red-400">
+                      <th className="px-5 py-4 text-xs font-black uppercase tracking-[0.14em] text-red-400" scope="col">
                         Roadmap
                       </th>
-                      <th className="px-5 py-4 text-xs font-black uppercase tracking-[0.14em] text-red-400">
+                      <th className="px-5 py-4 text-xs font-black uppercase tracking-[0.14em] text-red-400" scope="col">
                         Best For
                       </th>
-                      <th className="px-5 py-4 text-xs font-black uppercase tracking-[0.14em] text-red-400">
+                      <th className="px-5 py-4 text-xs font-black uppercase tracking-[0.14em] text-red-400" scope="col">
                         Est. Duration
                       </th>
-                      <th className="px-5 py-4 text-xs font-black uppercase tracking-[0.14em] text-red-400">
+                      <th className="px-5 py-4 text-xs font-black uppercase tracking-[0.14em] text-red-400" scope="col">
                         Starting Difficulty
                       </th>
                     </tr>
