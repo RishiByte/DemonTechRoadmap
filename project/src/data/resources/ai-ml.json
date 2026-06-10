@@ -4,7 +4,7 @@
   "description": "A curated database of premium learning resources to master mathematics for ML, classical algorithms, neural networks, deep learning, and transformers.",
   "metadata": {
     "version": "1.0.0",
-    "lastUpdated": "2026-06-02"
+    "lastUpdated": "2026-06-10"
   },
   "categories": [
     {
@@ -39,6 +39,20 @@
           "lastReviewed": "2026-05-10",
           "description": "Hands-on, notebook-based tutorial teaching data manipulation, cleaning, and aggregation using the Python Pandas library.",
           "tags": ["Pandas", "Python", "Data Wrangling", "Data Science"]
+        },
+        {
+          "id": "google-ml-crash-course",
+          "name": "Google Machine Learning Crash Course",
+          "url": "https://developers.google.com/machine-learning/crash-course",
+          "type": "Interactive Course",
+          "difficulty": "Beginner",
+          "cost": "Free",
+          "duration": "15 hours",
+          "rating": 4.8,
+          "sourceOrAuthor": "Google",
+          "lastReviewed": "2026-06-10",
+          "description": "A beginner-friendly introduction to machine learning with practical exercises, visual explanations, and real-world examples.",
+          "tags": ["Machine Learning", "Google", "Fundamentals", "Exercises"]
         }
       ]
     },
@@ -74,6 +88,34 @@
           "lastReviewed": "2026-05-28",
           "description": "Breaks down complex statistics and machine learning concepts (such as SVMs, Random Forests, XGBoost, and PCA) into small, simple, and beautifully visual explanations.",
           "tags": ["Statistics", "Random Forest", "Gradient Boosting", "PCA"]
+        },
+        {
+          "id": "kaggle-intro-ml",
+          "name": "Kaggle Intro to Machine Learning",
+          "url": "https://www.kaggle.com/learn/intro-to-machine-learning",
+          "type": "Interactive Course",
+          "difficulty": "Beginner",
+          "cost": "Free",
+          "duration": "5 hours",
+          "rating": 4.8,
+          "sourceOrAuthor": "Kaggle",
+          "lastReviewed": "2026-06-10",
+          "description": "A practical introduction to machine learning covering model building, validation, and prediction using real datasets.",
+          "tags": ["Machine Learning", "Kaggle", "Prediction", "Data Science"]
+        },
+        {
+          "id": "scikit-learn-tutorials",
+          "name": "Scikit-learn Tutorials",
+          "url": "https://scikit-learn.org/stable/tutorial/index.html",
+          "type": "Documentation",
+          "difficulty": "Beginner to Intermediate",
+          "cost": "Free",
+          "duration": "Self-paced",
+          "rating": 4.7,
+          "sourceOrAuthor": "Scikit-learn Team",
+          "lastReviewed": "2026-06-10",
+          "description": "Official tutorials teaching machine learning workflows, preprocessing, model training, and evaluation.",
+          "tags": ["Scikit-learn", "Classification", "Regression", "Python"]
         }
       ]
     },
@@ -123,6 +165,34 @@
           "lastReviewed": "2026-05-12",
           "description": "An unmatched 4-part visual series detailing what a neural network actually is, how it processes data, and the mathematical mechanics of backpropagation.",
           "tags": ["Neural Networks", "Backpropagation", "Gradient Descent", "Weights"]
+        },
+        {
+          "id": "deeplearning-ai-ai-for-everyone",
+          "name": "AI For Everyone",
+          "url": "https://www.coursera.org/learn/ai-for-everyone",
+          "type": "Course",
+          "difficulty": "Beginner",
+          "cost": "Free to Audit",
+          "duration": "6 hours",
+          "rating": 4.8,
+          "sourceOrAuthor": "Andrew Ng",
+          "lastReviewed": "2026-06-10",
+          "description": "A non-technical introduction to artificial intelligence that helps beginners understand AI concepts and applications.",
+          "tags": ["AI", "Beginner", "Introduction", "Andrew Ng"]
+        },
+        {
+          "id": "huggingface-llm-course",
+          "name": "Hugging Face LLM Course",
+          "url": "https://huggingface.co/learn/llm-course",
+          "type": "Documentation",
+          "difficulty": "Beginner to Intermediate",
+          "cost": "Free",
+          "duration": "Self-paced",
+          "rating": 4.8,
+          "sourceOrAuthor": "Hugging Face",
+          "lastReviewed": "2026-06-10",
+          "description": "A structured introduction to large language models, transformers, tokenization, and modern AI development.",
+          "tags": ["LLM", "Transformers", "Hugging Face", "Generative AI"]
         }
       ]
     }
