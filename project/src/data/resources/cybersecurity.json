@@ -39,7 +39,49 @@
           "lastReviewed": "2026-05-10",
           "description": "A high-quality foundational course developed by the prestigious SANS Institute, covering operating system security, basic networking, and core cryptography principles.",
           "tags": ["Networking", "OS Security", "System Maintenance"]
-        }
+        },
+        {
+          "id": "linux-journey",
+          "name": "Linux Journey",
+          "url": "https://linuxjourney.com/",
+          "type": "Interactive Course",
+          "difficulty": "Beginner",
+          "cost": "Free",
+          "duration": "10 hours",
+          "rating": 4.8,
+          "sourceOrAuthor": "Linux Journey",
+          "lastReviewed": "2026-06-11",
+          "description": "Interactive Linux learning platform covering command line, permissions, networking, and system administration.",
+          "tags": ["Linux", "CLI", "Networking", "Beginner"]
+        },
+        {
+          "id": "owasp-top-10",
+          "name": "OWASP Top 10",
+          "url": "https://owasp.org/www-project-top-ten/",
+          "type": "Reference Guide",
+          "difficulty": "Beginner",
+          "cost": "Free",
+          "duration": "Self-paced",
+          "rating": 4.9,
+          "sourceOrAuthor": "OWASP Foundation",
+          "lastReviewed": "2026-06-11",
+          "description": "Industry-standard guide covering the most critical web application security risks.",
+          "tags": ["OWASP", "Web Security", "Security Risks"]
+         },
+         {
+          "id": "cybrary-introduction",
+          "name": "Cybrary Introduction to Cybersecurity",
+          "url": "https://www.cybrary.it/",
+          "type": "Course",
+          "difficulty": "Beginner",
+          "cost": "Free",
+          "duration": "Self-paced",
+          "rating": 4.7,
+          "sourceOrAuthor": "Cybrary",
+          "lastReviewed": "2026-06-11",  
+          "description": "Beginner cybersecurity training covering security fundamentals and defensive concepts.",
+          "tags": ["Cybersecurity", "Fundamentals", "Defense"]
+         }
       ]
     },
     {
@@ -113,47 +155,4 @@
       ]
     }
   ]
-}
-{
-  "id": "linux-journey",
-  "name": "Linux Journey",
-  "url": "https://linuxjourney.com/",
-  "type": "Interactive Course",
-  "difficulty": "Beginner",
-  "cost": "Free",
-  "duration": "10 hours",
-  "rating": 4.8,
-  "sourceOrAuthor": "Linux Journey",
-  "lastReviewed": "2026-06-11",
-  "description": "Interactive Linux learning platform covering command line, permissions, networking, and system administration.",
-  "tags": ["Linux", "CLI", "Networking", "Beginner"]
-}
-{
-  "id": "owasp-top-10",
-  "name": "OWASP Top 10",
-  "url": "https://owasp.org/www-project-top-ten/",
-  "type": "Reference Guide",
-  "difficulty": "Beginner",
-  "cost": "Free",
-  "duration": "Self-paced",
-  "rating": 4.9,
-  "sourceOrAuthor": "OWASP Foundation",
-  "lastReviewed": "2026-06-11",
-  "description": "Industry-standard guide covering the most critical web application security risks.",
-  "tags": ["OWASP", "Web Security", "Security Risks"]
-}
-
-{
-  "id": "cybrary-introduction",
-  "name": "Cybrary Introduction to Cybersecurity",
-  "url": "https://www.cybrary.it/",
-  "type": "Course",
-  "difficulty": "Beginner",
-  "cost": "Free",
-  "duration": "Self-paced",
-  "rating": 4.7,
-  "sourceOrAuthor": "Cybrary",
-  "lastReviewed": "2026-06-11",
-  "description": "Beginner cybersecurity training covering security fundamentals and defensive concepts.",
-  "tags": ["Cybersecurity", "Fundamentals", "Defense"]
 }
