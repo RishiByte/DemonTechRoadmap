@@ -115,6 +115,22 @@ New to open source? Here's how to get started the right way:
 
 ---
 
+## Resource Link Review Checklist
+
+When adding, updating, or reviewing external learning resources (articles, videos, documentation) for our roadmaps, please use this checklist to ensure high-quality content:
+
+* [ ] **No Duplicates:** Verify that this exact resource URL isn't already used somewhere else in the project.
+* [ ] **Active & Working:** Click the link to confirm it loads successfully and does not return a 404 or dead page error.
+* [ ] **Free & Accessible:** Ensure the primary content is free to access. Avoid resources hidden behind mandatory paywalls.
+* [ ] **Beginner Friendly:** Confirm the material is easy to follow, avoids unnecessary jargon, and suits the roadmap level.
+* [ ] **Up to Date:** Check that the information is modern and relevant to the current state of technology.
+
+### What to do with Broken or Low-Quality Links?
+If you find a link during your review that is broken, outdated, or paid-only:
+1. **Replace It (Preferred):** Find a high-quality, free alternative resource and update the URL/title in your pull request.
+2. **Remove It:** If no immediate alternative is available, remove the link entirely so users don't encounter dead ends.
+3. **Flag It:** If you aren't sure what to replace it with, open an issue on the repository detailing the broken link so the community can find an alternative.
+
 # PR Checklist
 
 Before you open a Pull Request, go through every item below. PRs missing key items may be sent back for revision.
