@@ -160,7 +160,9 @@ export default function Home() {
 
       <ScrollReveal>
         <Testimonials />
-      
+      </ScrollReveal>
+
+      <ScrollReveal>
         <section className="px-5 py-16 lg:px-8">
           <div className="mx-auto grid max-w-[1280px] gap-8 lg:grid-cols-2">
             <div className="rounded-lg border border-zinc-800 bg-[#090909] p-6">

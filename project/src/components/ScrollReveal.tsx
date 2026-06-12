@@ -8,33 +8,33 @@ export default function ScrollReveal({
   children: React.ReactNode;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [ratio, setRatio] = useState(0);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setRatio(entry.intersectionRatio);
+        setVisible(entry.intersectionRatio >= 0.25);
       },
       {
-        threshold: Array.from({ length: 21 }, (_, i) => i / 20),
+        threshold: [0, 0.25],
       }
     );
 
-    const el = ref.current;
-    if (el) observer.observe(el);
-
-    return () => {
-      if (el) observer.unobserve(el);
-    };
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
+
 
   return (
     <div
       ref={ref}
-      className="transition-opacity duration-150 ease-in-out"
-      style={{
-        opacity: ratio,
-      }}
+      className={`
+        transition-all duration-750 ease-in-out
+        ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
+      `}
     >
       {children}
     </div>
