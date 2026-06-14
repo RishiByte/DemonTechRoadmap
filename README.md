@@ -90,37 +90,37 @@ Thanks to these amazing people for contributing to this project! 🎉
   <tr>
     <td align="center">
       <a href="https://github.com/rue-eru" title="rue-eru">
-        <img src="https://avatars.githubusercontent.com/u/162464326?v=4&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100" width="80px;" alt="rue-eru"/><br />
+        <img src="https://avatars.githubusercontent.com/u/162464326?v=4&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100" width="80px;" alt="rue-eru"/><br />
         <sub><b>rue-eru</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/Yuvraj-Sarathe" title="Yuvraj-Sarathe">
-        <img src="https://avatars.githubusercontent.com/u/216678101?v=4&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100" width="80px;" alt="Yuvraj-Sarathe"/><br />
+        <img src="https://avatars.githubusercontent.com/u/216678101?v=4&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100" width="80px;" alt="Yuvraj-Sarathe"/><br />
         <sub><b>Yuvraj-Sarathe</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/Dhrubajyoti930" title="Dhrubajyoti930">
-        <img src="https://avatars.githubusercontent.com/u/149499573?v=4&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100" width="80px;" alt="Dhrubajyoti930"/><br />
+        <img src="https://avatars.githubusercontent.com/u/149499573?v=4&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100" width="80px;" alt="Dhrubajyoti930"/><br />
         <sub><b>Dhrubajyoti930</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/amreshanand" title="Amresh Anand">
-        <img src="https://avatars.githubusercontent.com/u/225670667?v=4&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100" width="80px;" alt="Amresh Anand"/><br />
+        <img src="https://avatars.githubusercontent.com/u/225670667?v=4&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100" width="80px;" alt="Amresh Anand"/><br />
         <sub><b>Amresh Anand</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/RishiByte" title="RishiByte">
-        <img src="https://avatars.githubusercontent.com/u/227175134?v=4&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100" width="80px;" alt="RishiByte"/><br />
+        <img src="https://avatars.githubusercontent.com/u/227175134?v=4&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100" width="80px;" alt="RishiByte"/><br />
         <sub><b>RishiByte</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/nishtha-agarwal-211" title="nishtha-agarwal-211">
-        <img src="https://avatars.githubusercontent.com/u/242000265?v=4&s=100&s=100&s=100&s=100&s=100&s=100&s=100" width="80px;" alt="nishtha-agarwal-211"/><br />
+        <img src="https://avatars.githubusercontent.com/u/242000265?v=4&s=100&s=100&s=100&s=100&s=100&s=100&s=100&s=100" width="80px;" alt="nishtha-agarwal-211"/><br />
         <sub><b>nishtha-agarwal-211</b></sub>
       </a>
     </td>
@@ -128,38 +128,46 @@ Thanks to these amazing people for contributing to this project! 🎉
   <tr>
     <td align="center">
       <a href="https://github.com/dev" title="Kenny Hietbrink">
-        <img src="https://avatars.githubusercontent.com/u/12158001?v=4&s=100&s=100&s=100&s=100&s=100&s=100" width="80px;" alt="Kenny Hietbrink"/><br />
+        <img src="https://avatars.githubusercontent.com/u/12158001?v=4&s=100&s=100&s=100&s=100&s=100&s=100&s=100" width="80px;" alt="Kenny Hietbrink"/><br />
         <sub><b>Kenny Hietbrink</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/maitriupadhyay03" title="maitriupadhyay03-cell">
-        <img src="https://github.com/maitriupadhyay03.png?s=100&s=100&s=100&s=100&s=100" width="80px;" alt="maitriupadhyay03-cell"/><br />
+        <img src="https://github.com/maitriupadhyay03.png?s=100&s=100&s=100&s=100&s=100&s=100" width="80px;" alt="maitriupadhyay03-cell"/><br />
         <sub><b>maitriupadhyay03-cell</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/arnavbhilwariya0408" title="Arnav Bhilwariya">
-        <img src="https://github.com/arnavbhilwariya0408.png?s=100&s=100&s=100&s=100" width="80px;" alt="Arnav Bhilwariya"/><br />
+        <img src="https://github.com/arnavbhilwariya0408.png?s=100&s=100&s=100&s=100&s=100" width="80px;" alt="Arnav Bhilwariya"/><br />
         <sub><b>Arnav Bhilwariya</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/Anushkarshetty45" title="ANUSHKA R SHETTY">
-        <img src="https://avatars.githubusercontent.com/u/188852743?v=4&s=100&s=100&s=100" width="80px;" alt="ANUSHKA R SHETTY"/><br />
+        <img src="https://avatars.githubusercontent.com/u/188852743?v=4&s=100&s=100&s=100&s=100" width="80px;" alt="ANUSHKA R SHETTY"/><br />
         <sub><b>ANUSHKA R SHETTY</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/mutthasakshi578" title="sakshimuttha578">
-        <img src="https://github.com/mutthasakshi578.png?s=100&s=100" width="80px;" alt="sakshimuttha578"/><br />
+        <img src="https://github.com/mutthasakshi578.png?s=100&s=100&s=100" width="80px;" alt="sakshimuttha578"/><br />
         <sub><b>sakshimuttha578</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/ded-furby" title="ded-furby">
-        <img src="https://avatars.githubusercontent.com/u/190979964?v=4&s=100" width="80px;" alt="ded-furby"/><br />
+        <img src="https://avatars.githubusercontent.com/u/190979964?v=4&s=100&s=100" width="80px;" alt="ded-furby"/><br />
         <sub><b>ded-furby</b></sub>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/SharanyoBanerjee" title="Sharanyo Banerjee">
+        <img src="https://avatars.githubusercontent.com/u/70018622?v=4&s=100" width="80px;" alt="Sharanyo Banerjee"/><br />
+        <sub><b>Sharanyo Banerjee</b></sub>
       </a>
     </td>
   </tr>
